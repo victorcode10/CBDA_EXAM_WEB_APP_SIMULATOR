@@ -1,0 +1,964 @@
+[
+  {
+    "id": 1,
+    "question": "The Target Repository has separate fields for country, state, county while the source data system is feeding this data in one column separated by commas. What technique can best handle this scenario?",
+    "options": [
+      "Data Validation",
+      "Optimization",
+      "Data Mapping",
+      "Simulation"
+    ],
+    "correctAnswer": 2,
+    "domain": "Validate Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 2,
+    "question": "What would be the best reason to choose data storytelling to communicate the findings of the analytics project to stakeholders?",
+    "options": [
+      "Provides a direct and declarative statement involving a business decision.",
+      "When you want to express or explain a key message or theme.",
+      "Provides a holistic comprehension of the results.",
+      "Crafting a story around the data can be done easily and quickly if data points are available."
+    ],
+    "correctAnswer": 2,
+    "domain": "Determine Communication Needs of Stakeholders",
+    "difficulty": "medium"
+  },
+  {
+    "id": 3,
+    "question": "Ashish was analyzing the source data variables and the expected business outcome to suggest a test to the data scientist. He observed that:",
+    "options": [
+      "The predictor variable was quantitative.",
+      "The outcome variable was also quantitative and",
+      "They had a single predictor variable.",
+      "Chi-square test"
+    ],
+    "correctAnswer": 3,
+    "domain": "Perform Data Analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": 4,
+    "question": "An analyst wants to select an open-ended question for eliciting information from stakeholders about the business problem being analyzed. Which question should he select?",
+    "options": [
+      "How would you rate the severity of the problem on a scale of 1 to 10?",
+      "Which areas of the organization do you think are getting most impacted because of this problem?",
+      "What is the impact of his problem in your department?",
+      "Do you think this problem is negatively impacting the organization's turnover?"
+    ],
+    "correctAnswer": 2,
+    "domain": "Define Business Problem or Opportunity",
+    "difficulty": "hard"
+  },
+  {
+    "id": 5,
+    "question": "When features of data set have large differences between their ranges and the features need to be re-scaled such that they are centered around the mean with unit standard deviation, then we can say that data _______ has been done.",
+    "options": [
+      "Standardization",
+      "Normalization",
+      "Imputing",
+      "Cleaning"
+    ],
+    "correctAnswer": 0,
+    "domain": "Prepare Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 6,
+    "question": "Ramesh who headed the e-sales section of BigStore was analyzing the inventory and found a mismatch in the actual number of automobile parts sent from Germany and those displayed online. He found out that the data for the German parts were using comma as a decimal separator (Eg: 10.000,00). Hence, 10,000.00 was being displayed as 10 after round-off. This resulted in a huge loss as products did not sell even though they were available. What could have been the reason?",
+    "options": [
+      "Incorrect Data Validation and Improper Data Collection",
+      "Incorrect Data Mapping and lack of Impact Analysis",
+      "Incorrect implementation of business rules and lack of Attention to Detail",
+      "Incorrect ETL process testing and lack of Systems Thinking"
+    ],
+    "correctAnswer": 1,
+    "domain": "Data Mapping",
+    "difficulty": "hard"
+  },
+  {
+    "id": 7,
+    "question": "What competency should a BA have in order to guide building a model that is as comprehensive as possible?",
+    "options": [
+      "Decision making skills",
+      "Creative Thinking",
+      "Systems Thinking",
+      "Conceptual Thinking"
+    ],
+    "correctAnswer": 2,
+    "domain": "Manage Change",
+    "difficulty": "medium"
+  },
+  {
+    "id": 8,
+    "question": "Sunita, who was the lead business analyst was exploring the collected data from multiple data sources and she realized that the data contained outliers. What should be her next step?",
+    "options": [
+      "Looking at the data and using her business knowledge, she should handle it.",
+      "She should discuss with the stakeholders about how to handle the outliers.",
+      "She should discuss with the stakeholders about getting new data without outliers.",
+      "She should discuss with the data scientist and combine the business knowledge and outliers handling techniques to handle them."
+    ],
+    "correctAnswer": 3,
+    "domain": "Explore Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 9,
+    "question": "Sabiha drafted the findings from the analytics initiative and sent it to her supervisor for review. She had included the analytical methods used to come to the conclusion, the entire process followed to derive the results using story-boarding and the risks. Her supervisor was not very satisfied. What do you think was missing from the draft?",
+    "options": [
+      "Reason for choosing the model for analysis and the accuracy parameters used to measure the model effectiveness.",
+      "The visualizations used by the data scientist to select model features.",
+      "Action items from analytics that can produce value for business.",
+      "Data cleaning done to achieve good usable data of reliable consistency and quality."
+    ],
+    "correctAnswer": 2,
+    "domain": "Document and Communicate Findings from Completed Analysis",
+    "difficulty": "hard"
+  },
+  {
+    "id": 10,
+    "question": "Sasha was evaluating the success of the analytics initiative and realized that the outcome did not address the business need. It was decided that the research question should be re-framed with a new context. What different possibilities would this lead to?",
+    "options": [
+      "More feasible non-analytics solutions to the problem can be discovered, which might be simpler or more feasible.",
+      "Address stated KPIs.",
+      "May remove any personal biases of stakeholders.",
+      "Assumptions and perceptions may not require changes as the business need is the same."
+    ],
+    "correctAnswer": 0,
+    "domain": "Recommend Actions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 11,
+    "question": "Rohan who was the business analyst for a bank, wanted to define the KPIs for the research question. He used Bench-marking and Market Analysis and designed the KPIs. Select the correct statement.",
+    "options": [
+      "Rohan was correct in evaluating competitor and market problem handling methods as they are proven and we have an idea of how they worked out and used the most effective KPIs.",
+      "Rohan correctly identified the popular KPIs that other industries measured to improve their business.",
+      "Rohan incorrectly used the KPIs used by other similar businesses because these KPIs were not aligned to the strategy of his organization.",
+      "Rohan correctly used the KPIs used by other similar businesses and added other KPIs relevant to his organization thinking that more information is better than less."
+    ],
+    "correctAnswer": 2,
+    "domain": "Defining Future State",
+    "difficulty": "hard"
+  },
+  {
+    "id": 12,
+    "question": "It was observed that employees of the organization are not comfortable using the data driven tools and analytical solution being implemented in the organization. What steps should the organization take?",
+    "options": [
+      "Organizing translator training to develop their ability to translate between the technical and business worlds.",
+      "Source 20% new technical talent well-versed in data analytics tools and technologies so that they can influence other employees.",
+      "Organize online self-learning training for employees to increase their analytical quotient.",
+      "Organize training to explain the importance of analytical solutions and their impact to invest employees."
+    ],
+    "correctAnswer": 0,
+    "domain": "Talent Strategy",
+    "difficulty": "hard"
+  },
+  {
+    "id": 13,
+    "question": "A box and whisker plot for a data set will most clearly show _________",
+    "options": [
+      "The 90% confidence interval around the mean.",
+      "The difference between the 50th percentile and the median.",
+      "Where the error value is not zero.",
+      "If the data is skewed and, if so, in which direction."
+    ],
+    "correctAnswer": 3,
+    "domain": "Explore Data",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "question": "A kitchen appliances manufacturing company had to ship 10,000 microwave units across different locations in the country. They had recently implemented a new system of allocating serial numbers to items that were being shipped. But only 20% of units had been assigned serial numbers. This would cause a lot of issues. The delivery team had tested successfully for few serial numbers and the system behaved perfectly fine. The root cause analysis revealed that the hardware for the server did not have the capacity to handle the required load. What had gone wrong in the entire life cycle of the project?",
+    "options": [
+      "Scalability feasibility missing in the implementation plan, performance testing not done accurately.",
+      "Model incorrectly designed by the data scientists, production testing not done accurately.",
+      "Constraints and assumptions not captured in the implementation plan, non-functional requirements were not stated clearly.",
+      "None of these"
+    ],
+    "correctAnswer": 0,
+    "domain": "Develop Implementation Plan",
+    "difficulty": "hard"
+  },
+  {
+    "id": 15,
+    "question": "A retail store wants to determine the most profitable mix of items to be displayed on the front shelves of the store. They have space constraints and can display only few items. Which of the following analytical techniques is the most appropriate one to solve this problem?",
+    "options": [
+      "Optimization",
+      "Multiple Regression",
+      "Forecasting",
+      "Fuzzy Logic"
+    ],
+    "correctAnswer": 0,
+    "domain": "Develop Data Analysis Plan",
+    "difficulty": "hard"
+  },
+  {
+    "id": 16,
+    "question": "Roshan realized that new data had to be sourced in order to answer the business question. But the cost of acquisition and the value the data will bring to the analytics effort was not balanced. How can this lack in data volume and/or quality be compensated?",
+    "options": [
+      "Use feature engineering and domain expertise to convert existing data into smarter data tuned for analytics.",
+      "Try and find other feasible ways to source data like finding other cheaper sources.",
+      "Use sampling which will reduce the cycle time.",
+      "Research with the data architect and data scientist on how the available data can be transformed to answer the business question."
+    ],
+    "correctAnswer": 2,
+    "domain": "Plan Data Collection",
+    "difficulty": "hard"
+  },
+  {
+    "id": 17,
+    "question": "Which technique is useful for aligning the data strategy to business objectives and outcomes?",
+    "options": [
+      "Business Capability Analysis",
+      "Balanced Scorecard",
+      "SWOT Analysis",
+      "Value Chain Analysis"
+    ],
+    "correctAnswer": 1,
+    "domain": "Select Techniques for Guide Organizational-Level Strategy for Business Data Analytics",
+    "difficulty": "medium"
+  },
+  {
+    "id": 18,
+    "question": "Which figure would more appropriately convey information accurately?",
+    "options": [
+      "Figure 1",
+      "Figure 2",
+      "Both are appropriate",
+      "Neither of these."
+    ],
+    "correctAnswer": 1,
+    "domain": "Derive Insights from Data",
+    "difficulty": "easy"
+  },
+  {
+    "id": 19,
+    "question": "If attracting customers who prefer shopping online is the objective, the attributes of a typical online shopper will provide insights into how to do that. Which core concept is the BA addressing here?",
+    "options": [
+      "Solution",
+      "Need",
+      "Change",
+      "Context"
+    ],
+    "correctAnswer": 2,
+    "domain": "Formulate Research Questions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 20,
+    "question": "A company wants to analyze the question: \"Is there really a difference between the profitable customers and the average customer?\" What is the best way to analyze it?",
+    "options": [
+      "ARIMA",
+      "Regression",
+      "Simulation",
+      "Hypothesis Testing"
+    ],
+    "correctAnswer": 3,
+    "domain": "Develop Data Analysis Plan",
+    "difficulty": "hard"
+  },
+  {
+    "id": 21,
+    "question": "Data analytics solution to the descriptive business problem disrupted conventional thinking which resulted in discarding the solution. What do you think might be the reason behind this?",
+    "options": [
+      "Senior leaders were not conversant in data science.",
+      "The skill set and knowledge required to interpret the analytical results was lacking among stakeholders.",
+      "Data revealed business insights which were unexpected, uncomfortable, and unwelcome.",
+      "Lack of Executive leadership support for the analytics initiative."
+    ],
+    "correctAnswer": 2,
+    "domain": "Recommend Actions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 22,
+    "question": "After successful implementation of few analytical initiatives in the organization, the leadership feels the need to build an organization level analytical strategy. What should be their first step?",
+    "options": [
+      "Appoint a project manager for this project.",
+      "Assess the organization's analytical readiness and appetite.",
+      "Decide and plan the data strategy.",
+      "Hire talent to support the analytics implementation throughout the organization."
+    ],
+    "correctAnswer": 1,
+    "domain": "Organizational Strategy",
+    "difficulty": "hard"
+  },
+  {
+    "id": 23,
+    "question": "Defining the business problem or opportunity accurately will help answer which question?",
+    "options": [
+      "How you will approach data collection?",
+      "How to reduce potential negative impacts and negative stakeholder influence?",
+      "Does the organization have appetite for analytics?",
+      "Analyze whether the organization has the expertise for solving the problem using analytics."
+    ],
+    "correctAnswer": 0,
+    "domain": "Define Business Problem or Opportunity",
+    "difficulty": "medium"
+  },
+  {
+    "id": 24,
+    "question": "What are the different methods of handling missing values?",
+    "options": [
+      "Maximum likelihood",
+      "Mean Substitution",
+      "Principal Component Analysis",
+      "Markov Chain"
+    ],
+    "correctAnswer": 1,
+    "domain": "Prepare Data",
+    "difficulty": "easy"
+  },
+  {
+    "id": 25,
+    "question": "Which of the following best describes the data and information flow within an organization?",
+    "options": [
+      "Data Strategy",
+      "Data Architecture",
+      "Data Mapping",
+      "Data Validation"
+    ],
+    "correctAnswer": 1,
+    "domain": "Organizational Strategy",
+    "difficulty": "medium"
+  },
+  {
+    "id": 26,
+    "question": "You have been given a task of establishing a model to map many independent variables (X’s) to one dependent variable (Y). The model should explain the level of significance of the X’s to Y and their level of correlation. Which model best suits this scenario?",
+    "options": [
+      "Principal Component Analysis",
+      "Stepwise Regression",
+      "Linear Programming",
+      "Fuzzy Logic"
+    ],
+    "correctAnswer": 1,
+    "domain": "Develop Data Analysis Plan",
+    "difficulty": "hard"
+  },
+  {
+    "id": 27,
+    "question": "Sam is drafting the data strategy for his organization. What question(s) does he need to ask to develop a successful strategy?",
+    "options": [
+      "What best practices should be defined?",
+      "What is the company’s data ecosystem?",
+      "What are the technical competencies of the organization of handling data?",
+      "A and B"
+    ],
+    "correctAnswer": 1,
+    "domain": "Data Strategy",
+    "difficulty": "medium"
+  },
+  {
+    "id": 28,
+    "question": "An analyst wanted to display sucrose breakdown in a graph format and the data scientist suggested creating groups of similar groups and separating non-similar groups. Which Gestalt principle is he referring to?",
+    "options": [
+      "Enclosure",
+      "Similarity",
+      "Proximity",
+      "Connection"
+    ],
+    "correctAnswer": 0,
+    "domain": "Recommend Actions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 29,
+    "question": "Which principles can help preparing a visualization that evokes compelling insights?",
+    "options": [
+      "Focusing on individual data points and not just trends may reveal much more information.",
+      "Add as much information in the form of legends, text, labels, and images to the charts to ensure complete understanding.",
+      "Use dual axis graphs to compare two metrics simultaneously.",
+      "Plotting same data on different graphs to find the best graph option displaying accurate insights."
+    ],
+    "correctAnswer": 3,
+    "domain": "Derive Insights from Data",
+    "difficulty": "medium"
+  },
+  {
+    "id": 30,
+    "question": "You have six months to solve the business problem. You have some data already collected in the organization's data marts and some data has to be collected. You realize that a part of data required is generated periodically every quarter and hence would be generated after three months. What would you do in such a scenario?",
+    "options": [
+      "Wait until all the data is available as starting without data might cause problems later on and impact the model selection.",
+      "Highlight this and start working on this project after three months when all data is available.",
+      "Ignore the data constraint and with help of data scientists design a tool that fits all possible scenarios.",
+      "Start developing the model with dummy data using business knowledge."
+    ],
+    "correctAnswer": 3,
+    "domain": "Collect Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 31,
+    "question": "Sonal is assessing the plan to collect data to answer the business question and she realized that the cost of acquiring data is high and the data validation of currently available data is questionable. What immediate next step(s) should be taken by Sonal?",
+    "options": [
+      "Analyze the long and short term impact of the data collected on business and submit a complete report with costing to the key business stakeholders.",
+      "Collect data from other sources like surveys.",
+      "Check with the data analyst about possibility of performing data validation on existing data.",
+      "A and C"
+    ],
+    "correctAnswer": 3,
+    "domain": "Plan Data Collection",
+    "difficulty": "hard"
+  },
+  {
+    "id": 32,
+    "question": "Suppose your CEO states that he wants to increase online sales by analyzing web and social media engagement statistics. You have to start providing your inputs on how to approach this business opportunity. What will be your first move?",
+    "options": [
+      "Start enquiring about any particular segment sales that they want to target.",
+      "Talk to the social media engagement team to understand what current tactics they are using.",
+      "Start exploring existing data on social media engagement statistics of the organization.",
+      "Ask your sponsor what actual numeric target of increased sales they want to achieve."
+    ],
+    "correctAnswer": 3,
+    "domain": "Define Business Problem or Opportunity",
+    "difficulty": "hard"
+  },
+  {
+    "id": 33,
+    "question": "An online retail company wants to send coupons to customers. They want to use analytics to bucket infrequent buyers and send coupons so that they start shopping again. Which technique can you use for making this decision?",
+    "options": [
+      "Analysis of Variance",
+      "Linear Regression",
+      "Logistic Regression",
+      "Simulation"
+    ],
+    "correctAnswer": 2,
+    "domain": "Develop Data Analysis Plan",
+    "difficulty": "hard"
+  },
+  {
+    "id": 34,
+    "question": "A car manufacturing company wants to determine the reasons for manufacturing machine failures. The best method(s) to identify the root causes is _____________",
+    "options": [
+      "Use the 5 Whys technique iteratively.",
+      "Use historical data to analyze failure causes.",
+      "Conduct a well-prepared design of experiments.",
+      "A or B"
+    ],
+    "correctAnswer": 3,
+    "domain": "Define Business Problem or Opportunity",
+    "difficulty": "hard"
+  },
+  {
+    "id": 35,
+    "question": "John wanted to communicate the results from the analytics initiative to the stakeholders by explaining how the analytics process initiated, the various decision points, the analytical steps taken and the results achieved in a visual form. Which technique would be the most suitable?",
+    "options": [
+      "3-minute story",
+      "Story-boarding",
+      "Big Idea",
+      "Data Journey"
+    ],
+    "correctAnswer": 3,
+    "domain": "Select Techniques for Interpret and Reporting Results",
+    "difficulty": "hard"
+  },
+  {
+    "id": 36,
+    "question": "In order to develop an analytical solution to the business problem, Mark's discussion with Steve highlighted that he was more concerned with the user experience of the site. The sales team wanted to make sure that people visiting the site turned into customers and the senior executives wanted confirmation that the correct set of people are being targeted for discounts. What was Mark doing?",
+    "options": [
+      "Identifying key stakeholders for information distribution.",
+      "Articulating objectives of stakeholders.",
+      "Identifying interest of all Stakeholders.",
+      "Identifying stakeholders who are creating relevant information to solve the problem."
+    ],
+    "correctAnswer": 1,
+    "domain": "Identify and Understand the Stakeholders",
+    "difficulty": "hard"
+  },
+  {
+    "id": 37,
+    "question": "For the customer churn analytics initiative, which insight(s) delivered by Sameer would be most useful?",
+    "options": [
+      "The root causes for switching.",
+      "5% of the customers are going to switch.",
+      "The profile of the customers who will switch.",
+      "A and C"
+    ],
+    "correctAnswer": 3,
+    "domain": "Document and Communicate Findings from Completed Analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": 38,
+    "question": "An analytics initiative wants to build a predictive data-mining model for predicting customer churn and behaviour. The model will be using customer transaction history, demographics, and bill payment and other predictors. There are currently 50,000 unique customers available for building the predictive model. Pick the best strategy of using these customers to build an accurate model.",
+    "options": [
+      "Use 35,000 randomly selected data points when building the model, and hold the remaining 15,000 out as a test data set.",
+      "Use all 50,000 data points when building the model.",
+      "Build four separate models and randomly partition the data into five separate data sets with 10,000 data points each.",
+      "Use 1,000 randomly selected data points when building the model."
+    ],
+    "correctAnswer": 0,
+    "domain": "Perform Data Analysis",
+    "difficulty": "hard"
+  },
+  {
+    "id": 39,
+    "question": "An analyst is measuring the net benefits divided by the cost of the change for different options to pick the best change initiative. What is the analyst calculating?",
+    "options": [
+      "Discount Rate",
+      "Cost-Benefit Analysis",
+      "Net Present Value",
+      "Return on Investment"
+    ],
+    "correctAnswer": 3,
+    "domain": "Organizational Strategy",
+    "difficulty": "hard"
+  },
+  {
+    "id": 40,
+    "question": "When recommending solution to prevent telecom customer churn, which question will not give appropriate details?",
+    "options": [
+      "What will be the deployment cost that may involve live data streams, unstructured data collection? What is the comparison between cost and benefits?",
+      "Will there be any real time actions needed for potential customers who can churn?",
+      "Have all stakeholders agreed to implement the change?",
+      "What changes in the existing architecture will be needed to incorporate the new solution?"
+    ],
+    "correctAnswer": 2,
+    "domain": "Recommend Actions",
+    "difficulty": "medium"
+  },
+  {
+    "id": 41,
+    "question": "How will the analytical terms - insights, data, information and actionable insights fit into the hierarchy data pyramid?",
+    "options": [
+      "A: Actionable Insights B: Insights C: Information D: Data",
+      "A: Data B: Insights C: Information D: Actionable Insights",
+      "A: Information B: Data C: Insights D: Actionable Insights",
+      "A: Data B: Information C: Insights D: Actionable Insights"
+    ],
+    "correctAnswer": 3,
+    "domain": "Derive Insights from Data",
+    "difficulty": "medium"
+  },
+  {
+    "id": 42,
+    "question": "What factor(s) influence the decisions made by stakeholders on how best to support business decision-making?",
+    "options": [
+      "Timing and frequency of communication.",
+      "The type of analysis used to draw key insights.",
+      "How the results are communicated.",
+      "B and C"
+    ],
+    "correctAnswer": 3,
+    "domain": "Recommend Actions",
+    "difficulty": "medium"
+  },
+  {
+    "id": 43,
+    "question": "A senior executive involved in the analytical project of the organization changed. During the next monthly meeting, the BA presented the progress of the analytics project, but there was a mismatch between the actual delivery dates stated by the BA and date expected by the changed stakeholder. What might be the probable reason for this confusion?",
+    "options": [
+      "Mismatch in the communication preferences",
+      "One time stakeholder analysis",
+      "Mismatch in level of expertise in interpreting the progress",
+      "Changing needs and objectives of business"
+    ],
+    "correctAnswer": 1,
+    "domain": "Validate Understanding of Stakeholders",
+    "difficulty": "hard"
+  },
+  {
+    "id": 44,
+    "question": "Rajesh was preparing a dashboard for the Stakeholder meeting to communicate the findings from the analytical process. He knew that Tom had the tendency to search for more credible information that supported a preferred course of action. What was he dealing with?",
+    "options": [
+      "Preferences",
+      "Biases",
+      "Resistance to change",
+      "Lack of investment"
+    ],
+    "correctAnswer": 1,
+    "domain": "Determine Communication Needs of Stakeholders",
+    "difficulty": "hard"
+  },
+  {
+    "id": 45,
+    "question": "A client wanted to use analytics to: “Develop an optimal digital marketing strategy to reach the likely target customer pool.\" What is the most important step to solve this qualitative business scenario?",
+    "options": [
+      "Understanding how this business need relates to the way the organization is currently functioning.",
+      "Defining measurable strategic and operational objectives.",
+      "Analyzing whether solving this question is worth the analytical effort.",
+      "Identifying the Stakeholders who would be most impacted by this requirement."
+    ],
+    "correctAnswer": 1,
+    "domain": "Define Business Problem/Opportunity",
+    "difficulty": "hard"
+  },
+  {
+    "id": 46,
+    "question": "A telecom company wanted to use analytics to predict emotion from speech from the customer call center calls. They don't have data for this kind of identification and hence they collected a subset of past calls covering different emotions and sent it to experts for human labeling which would be used by the machine learning model. How can we check for subjectivity?",
+    "options": [
+      "Sampling",
+      "Bench-marking",
+      "Repeat-ability and Reproducibility",
+      "Design of experiments"
+    ],
+    "correctAnswer": 2,
+    "domain": "Validate Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 47,
+    "question": "Tom wants to describe how data is stored, and managed in a software application. Which model is best suited for this purpose?",
+    "options": [
+      "Logical Data Model",
+      "Physical Data Model",
+      "Feature Model",
+      "Matrix Model"
+    ],
+    "correctAnswer": 1,
+    "domain": "Prepare Data",
+    "difficulty": "medium"
+  },
+  {
+    "id": 48,
+    "question": "What attributes should insights derive from the data which are communicated to the stakeholders to influence business actions have?",
+    "options": [
+      "Alignment to KPIs",
+      "Clarity",
+      "Novelty",
+      "Relevance"
+    ],
+    "correctAnswer": 3,
+    "domain": "Design and Communicate Findings from Completed Analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": 49,
+    "question": "Stakeholders of the organization wanted to finalize the number of weeks it would take to complete the proposed analytical initiative. The analyst had organized a workshop for this and the stakeholders prepared their input hours individually based on past initiatives and market data before the workshop. Which method are they using here?",
+    "options": [
+      "Delphi",
+      "Pert",
+      "Rough Order of Magnitude",
+      "Parametric Estimation"
+    ],
+    "correctAnswer": 3,
+    "domain": "Plan Data Collection",
+    "difficulty": "hard"
+  },
+  {
+    "id": 50,
+    "question": "Which technique is the most suitable for reducing the number of dimensions in the data?",
+    "options": [
+      "Principal Component Analysis",
+      "Monte Carlo Markov Chain methods",
+      "Normalization",
+      "Clustering"
+    ],
+    "correctAnswer": 0,
+    "domain": "Perform Data Analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": 51,
+    "question": "An analyst wants to assess spending traits based on their job profiles of customers in United States. Instead of selecting every customer, she decides to group them based on job profiles and select a group randomly. What is she doing here?",
+    "options": [
+      "Stratified Sampling",
+      "Convenience Sampling",
+      "Quota Sampling",
+      "Cluster Sampling"
+    ],
+    "correctAnswer": 3,
+    "domain": "Determine the Data Sets",
+    "difficulty": "hard"
+  },
+  {
+    "id": 52,
+    "question": "An analyst wanted to work on a hypothesis and wanted to collect a sample. He picked two locations from each city for the sample. Select the correct statement.",
+    "options": [
+      "The sample selected has confirmation bias",
+      "The sample selected has selection bias.",
+      "The sample selected is correct.",
+      "Cannot be determined."
+    ],
+    "correctAnswer": 1,
+    "domain": "Collect Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 53,
+    "question": "In Atlas telecom, a well-defined framework for testing different alternative solutions is present. They test their solutions under conditions that mimic as closely as possible the actual business setting and carefully consider the costs and benefits. What maturity level and deployment stage is the company currently operating in?",
+    "options": [
+      "High, Production",
+      "Medium, Pilot",
+      "Low, Proof of Concept",
+      "Medium, Production"
+    ],
+    "correctAnswer": 1,
+    "domain": "Plan Business Data Analytics Approach",
+    "difficulty": "hard"
+  },
+  {
+    "id": 54,
+    "question": "A telecom company wants to analyze the business question: \"How much will this customer use the service?” Which model will be best suitable for this analysis?",
+    "options": [
+      "Classification, Supervised method",
+      "Regression, Supervised method",
+      "Similarity matching, Unsupervised Method",
+      "Clustering, Unsupervised Method"
+    ],
+    "correctAnswer": 1,
+    "domain": "Develop Data Analysis Plan",
+    "difficulty": "hard"
+  },
+  {
+    "id": 55,
+    "question": "The analytics team of an organization was able to identify the employee profiles that had best chances of succeeding in particular roles. They recommended forming capabilities of resources based on skills. When the organization needs a resource for a project, they can tap the resource pool in the appropriate capability. Stakeholders agree that it is a good idea. What step should not be taken by the analyst to manage the change?",
+    "options": [
+      "Rank and rate different ways to implement and propose changes to the already existing structure and processes",
+      "Drive the decision-making process by understanding the constraints, risks, and assumptions.",
+      "Prepare data strategy for governance, architecture and security.",
+      "Prepare a narrative and engaging story to communicate the recommendation."
+    ],
+    "correctAnswer": 3,
+    "domain": "Manage Change",
+    "difficulty": "hard"
+  },
+  {
+    "id": 56,
+    "question": "Analytical assessment discovered that the customer segmentation was not done correctly resulting in loss by sending coupons to incorrect customer segment. The lead BA was trying to predict potential problems that might arise during the communication of the result to stakeholders. What might weaken the analysis impact?",
+    "options": [
+      "The descriptive analysis identified gaps in the business process.",
+      "The descriptive analysis identified data anomalies.",
+      "The diagnostic analysis identified gaps in the business process.",
+      "The prescriptive analysis suggested a new way of decision making."
+    ],
+    "correctAnswer": 2,
+    "domain": "Determine Communication Needs of Stakeholders",
+    "difficulty": "hard"
+  },
+  {
+    "id": 57,
+    "question": "Which is the preferred method or best practice for organizing data in a data warehouse for reporting and analysis?",
+    "options": [
+      "Transactional-based modeling",
+      "Relation based modeling",
+      "Multidimensional modeling",
+      "Tuple based modeling"
+    ],
+    "correctAnswer": 2,
+    "domain": "Collect Data",
+    "difficulty": "medium"
+  },
+  {
+    "id": 58,
+    "question": "After building a predictive model and testing it on new data, an under prediction by a forecasting system can be detected by its _______________.",
+    "options": [
+      "R-squared value",
+      "Bias",
+      "Mean Absolute Error",
+      "Mean Squared Error"
+    ],
+    "correctAnswer": 1,
+    "domain": "Perform Data Analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": 59,
+    "question": "The Supply Chain analytics team highlighted the hidden inefficiencies in existing structures and proposed changes in order to generate greater cost savings. What possible roadblocks can be expected by the BA in order to influence decision making using the results?",
+    "options": [
+      "Financial constraints to implement the changes in all the Supply Chain processes.",
+      "Unacceptance of inconvenient outcomes highlighted by analytics team.",
+      "Possibility of not reaching an unanimous decision of all Stakeholders on the value addition caused by implementing the solution.",
+      "Lack of Executive leadership support for the analytics initiative and biases."
+    ],
+    "correctAnswer": 1,
+    "domain": "Recommend Actions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 60,
+    "question": "Select scenario(s) in which stakeholder analysis plays an important role.",
+    "options": [
+      "Conveying results at the correct level of detail.",
+      "Defining key constraints and risks during change management.",
+      "Deciding the type and depth of visualizations.",
+      "A and C"
+    ],
+    "correctAnswer": 3,
+    "domain": "Plan Stakeholder Communication",
+    "difficulty": "easy"
+  },
+  {
+    "id": 61,
+    "question": "A telecom company's analytical initiative revealed that a sudden increase in customer churn in a particular area may be due to weak signal. What did this analytics help discover? Which technique would have helped uncover this insight?",
+    "options": [
+      "Isolate Patterns, Principal Component Analysis",
+      "Identify Outliers, Predictive modeling",
+      "Uncover Relationships, Classification",
+      "Uncover best actions, Simulation Analysis"
+    ],
+    "correctAnswer": 0,
+    "domain": "Formulate Research Questions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 62,
+    "question": "The BA is preparing a story to convey analytical results for the business problem for the stakeholders. What should be included in the story?",
+    "options": [
+      "ROC graph depicting relative trade-offs that a classifier makes between benefits and costs.",
+      "Predicted consequences if action is not taken.",
+      "Data cleaning and outlier management techniques used.",
+      "None of these"
+    ],
+    "correctAnswer": 1,
+    "domain": "Document and Communicate Findings from Completed Analysis",
+    "difficulty": "medium"
+  },
+  {
+    "id": 63,
+    "question": "Shyam has collected the required data required to answer the business question and now wants to validate data before analyzing it with the data scientists. What would be some of the basic step(s) he should take?",
+    "options": [
+      "Slice Data",
+      "Cross-reference Validation",
+      "Feature Creation",
+      "A and B"
+    ],
+    "correctAnswer": 1,
+    "domain": "Validate Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 64,
+    "question": "Seema was evaluating the success of the analytics initiative of trying to understand the customer engagement of the e-commerce site to improve sales. One of the factor used to analyze this was total visits and the outcome indicated that the customer engagement was excellent with many visits at different hours and from all across the world. But Seema realized that the outcome did not answer the research question. She realized that the business data analytics cycle would have to repeated. What would be the starting point?",
+    "options": [
+      "Re-frame the research question.",
+      "Change the KPI.",
+      "Modify the future state.",
+      "Change the analytical model."
+    ],
+    "correctAnswer": 1,
+    "domain": "Recommend Actions",
+    "difficulty": "hard"
+  },
+  {
+    "id": 65,
+    "question": "The lead BA wants to explain the importance of cleaning the data collected from multiple sources to the Stakeholder who is not very keen on approving it as the cost is shooting over the budget. What statement should the BA avoid?",
+    "options": [
+      "Support accurate and updated data analytics.",
+      "Maintain uniqueness of data.",
+      "Manage multichannel data seamlessly.",
+      "Avoid costly errors."
+    ],
+    "correctAnswer": 1,
+    "domain": "Validate Data",
+    "difficulty": "hard"
+  },
+  {
+    "id": 66,
+    "question": "The BA highlighted that using the analytics initiative for the business opportunity did not fit in the company's budget and also not all stakeholders were keen on using analytics to solve the problem. At what stage do you think the problem was identified and what should be done in this case?",
+    "options": [
+      "Identifying the Stakeholders, try to find methods other than analytics to find solutions for the opportunity.",
+      "Context of the proposed change, re-frame problem statement into manageable relevant opportunities.",
+      "Defining the vision of desired outcome of change, work on identifying some other opportunity.",
+      "Formulating research questions, modify problem statement to focus on new objective."
+    ],
+    "correctAnswer": 1,
+    "domain": "Assess Current State",
+    "difficulty": "hard"
+  },
+  {
+    "id": 67,
+    "question": "A company wants to analyze restaurant customer reviews to improve and understand what is working well. In house data has text reviews about the restaurant hygiene, some about the dishes and some about the overall experience. The company is planning to add audio and video reviews. What steps should the BA consider when collecting data for this initiative?",
+    "options": [
+      "Storage in data lakes, data validation not required, unstructured data.",
+      "Storage in data warehouse, data validation required, unstructured data.",
+      "Storage in MongoDb, data validation not required, unstructured data.",
+      "Storage in data lakes, data validation required, unstructured data."
+    ],
+    "correctAnswer": 3,
+    "domain": "Plan Data Collection",
+    "difficulty": "hard"
+  },
+  {
+    "id": 68,
+    "question": "A bank was using analytics to detect fraud and had built a model for that. The BA wanted to propose the accuracy metric. Which metric is the best suited for this problem?",
+    "options": [
+      "Precision",
+      "Recall",
+      "Accuracy",
+      "Specificity"
+    ],
+    "correctAnswer": 1,
+    "domain": "Defining Future State",
+    "difficulty": "hard"
+  },
+  {
+    "id": 69,
+    "question": "Which factor is not needed to be continually assessed?",
+    "options": [
+      "Data Accuracy",
+      "Organization's capabilities and capacity for analytics",
+      "Importance of the research questions",
+      "Stakeholder skill-sets for interpreting those results"
+    ],
+    "correctAnswer": 1,
+    "domain": "Validate Understanding of Stakeholders",
+    "difficulty": "easy"
+  },
+  {
+    "id": 70,
+    "question": "Which technique selects features by evaluating the statistical dependence between each variable in the context of the target variable?",
+    "options": [
+      "Chi-square test",
+      "Information Gain",
+      "Correlation Coefficient",
+      "Variance Threshold"
+    ],
+    "correctAnswer": 1,
+    "domain": "Explore Data",
+    "difficulty": "medium"
+  },
+  {
+    "id": 71,
+    "question": "Which technique is best suitable to systematically walk-through predictive and prescriptive analytics processes to highlight certain conclusions?",
+    "options": [
+      "Workshops",
+      "3-minute Story",
+      "Prototyping",
+      "Process Analysis"
+    ],
+    "correctAnswer": 2,
+    "domain": "Select Techniques for Interpret and Reporting Results",
+    "difficulty": "medium"
+  },
+  {
+    "id": 72,
+    "question": "How best can this question be handled? \"What happens to revenue if marketing mix is changed?\"",
+    "options": [
+      "Process Analysis",
+      "Principal Component Analysis",
+      "Classification",
+      "Business Simulation"
+    ],
+    "correctAnswer": 3,
+    "domain": "Business Simulation",
+    "difficulty": "medium"
+  },
+  {
+    "id": 73,
+    "question": "Raj wants to display:",
+    "options": [
+      "1. Text 2. Column Bar Chart 3. Scatter Plot",
+      "1. Text 2. Scatter Plot 3. Bar Chart",
+      "1. Text 2. Scatter Plot 3. Area Chart",
+      "1. Text 2. Line Chart 3. Scatter Plot"
+    ],
+    "correctAnswer": 0,
+    "domain": "Document and Communicate Findings from Completed Analysis",
+    "difficulty": "easy"
+  },
+  {
+    "id": 74,
+    "question": "The stakeholder rejected the research questions formulated by the BA. What might the possible reason(s) for that?",
+    "options": [
+      "The questions were not relevant to the business goals.",
+      "There was a mismatch between the KPIs defined and the research questions.",
+      "The questions did not contain any technical terms.",
+      "A and B"
+    ],
+    "correctAnswer": 0,
+    "domain": "Formulate Research Questions",
+    "difficulty": "medium"
+  }
+]

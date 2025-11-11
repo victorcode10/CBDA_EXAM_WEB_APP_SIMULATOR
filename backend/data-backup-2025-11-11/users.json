@@ -1,0 +1,38 @@
+[
+  {
+    "id": "admin_001",
+    "name": "Admin User",
+    "email": "victor@blossom.africa",
+    "password": "$2a$10$YjCWFXqXRiwKzRighSoFt.jS92vlCiK.KLYsI9EC.lYRq4jH2hpk6",
+    "role": "admin",
+    "createdAt": "2025-10-27T11:43:11.074Z",
+    "verified": true
+  },
+  {
+    "id": "student_001",
+    "name": "Victor Bolade",
+    "email": "student@cbda.com",
+    "password": "$2a$10$MZPzFSwaDz2yX216wLjshOnUnWi0BqEQuClRpl2sqp2EuMC8tV9zq",
+    "role": "student",
+    "createdAt": "2025-10-27T11:43:11.144Z",
+    "verified": true
+  },
+  {
+    "id": "student_1761565543493",
+    "name": "Victor",
+    "email": "victorboladea@gmail.com",
+    "password": "$2a$10$80JcMc21AzXM2ORGSJaPeOdFfYDvRulMDf3I4VzpUM8KKF.XBsJGi",
+    "role": "student",
+    "createdAt": "2025-10-27T11:45:43.571Z",
+    "verified": true
+  },
+  {
+    "id": "student_1761746084539",
+    "name": "Yinks",
+    "email": "victorboladey@gmail.com",
+    "password": "$2a$10$dWAX62lG8yT6bh4w61oLkeUPYHRrecKgWXZ1xd.te5FKCceOTjFPi",
+    "role": "student",
+    "createdAt": "2025-10-29T13:54:44.738Z",
+     "verified": true
+  }
+]

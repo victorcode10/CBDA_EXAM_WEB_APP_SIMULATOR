@@ -3,39 +3,65 @@ const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
 
+let db = null;
 let storage = null;
 let bucket = null;
 let isInitialized = false;
 
-const initializeFirebaseStorage = () => {
+const initializeFirebase = () => {
   try {
     if (isInitialized) {
-      console.log('⚠️  Firebase Storage already initialized');
-      return { storage, bucket };
+      console.log('⚠️  Firebase already initialized');
+      return { db, storage, bucket };
     }
 
     // Try to use service account JSON file
     const serviceAccountPath = path.join(__dirname, '..', 'firebase-service-account.json');
     
+    console.log(`🔍 Looking for Firebase credentials at: ${serviceAccountPath}`);
+    
     if (fs.existsSync(serviceAccountPath)) {
+      console.log('✅ Found firebase-service-account.json');
+      
       const serviceAccount = require(serviceAccountPath);
+      
+      // Validate required fields
+      if (!serviceAccount.project_id) {
+        throw new Error('Missing project_id in service account JSON');
+      }
+      if (!serviceAccount.client_email) {
+        throw new Error('Missing client_email in service account JSON');
+      }
+      if (!serviceAccount.private_key) {
+        throw new Error('Missing private_key in service account JSON');
+      }
+      
+      console.log(`📦 Project ID: ${serviceAccount.project_id}`);
+      console.log(`📧 Client Email: ${serviceAccount.client_email}`);
       
       if (!admin.apps.length) {
         admin.initializeApp({
           credential: admin.credential.cert(serviceAccount),
           storageBucket: `${serviceAccount.project_id}.appspot.com`
         });
+        console.log('✅ Firebase Admin SDK initialized');
       }
       
+      db = admin.firestore();
       storage = admin.storage();
       bucket = storage.bucket();
       isInitialized = true;
       
-      console.log('✅ Firebase Storage initialized successfully');
-      return { storage, bucket };
+      console.log('✅ Firestore initialized');
+      console.log('✅ Storage initialized');
+      console.log('✅ Firebase ready!\n');
+      
+      return { db, storage, bucket };
     } 
     // Fallback to environment variables
     else if (process.env.FIREBASE_PROJECT_ID) {
+      console.log('📝 Using environment variables for Firebase');
+      
       if (!admin.apps.length) {
         admin.initializeApp({
           credential: admin.credential.cert({
@@ -47,26 +73,31 @@ const initializeFirebaseStorage = () => {
         });
       }
       
+      db = admin.firestore();
       storage = admin.storage();
       bucket = storage.bucket();
       isInitialized = true;
       
-      console.log('✅ Firebase Storage initialized with environment variables');
-      return { storage, bucket };
+      console.log('✅ Firebase initialized with environment variables');
+      return { db, storage, bucket };
     }
 
-    console.log('⚠️  Firebase Storage not configured');
-    return { storage: null, bucket: null };
+    console.error('❌ Firebase credentials not found!');
+    console.error('   Expected file: backend/firebase-service-account.json');
+    console.error('   OR environment variables: FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY');
+    
+    return { db: null, storage: null, bucket: null };
   } catch (error) {
-    console.error('❌ Firebase Storage initialization error:', error.message);
-    return { storage: null, bucket: null };
+    console.error('❌ Firebase initialization error:', error.message);
+    console.error('   Full error:', error);
+    return { db: null, storage: null, bucket: null };
   }
 };
 
 // Upload CSV to Firebase Storage
 const uploadCSVToFirebase = async (csvContent, filename) => {
   try {
-    const { bucket } = initializeFirebaseStorage();
+    const { bucket } = initializeFirebase();
     if (!bucket) {
       return { success: false, error: 'Firebase Storage not initialized' };
     }
@@ -82,7 +113,6 @@ const uploadCSVToFirebase = async (csvContent, filename) => {
       }
     });
 
-    // Make file publicly accessible (or keep private for admin only)
     await file.makePublic();
 
     const publicUrl = `https://storage.googleapis.com/${bucket.name}/exports/${filename}`;
@@ -103,7 +133,7 @@ const uploadCSVToFirebase = async (csvContent, filename) => {
 // List all uploaded CSVs
 const listCSVFiles = async () => {
   try {
-    const { bucket } = initializeFirebaseStorage();
+    const { bucket } = initializeFirebase();
     if (!bucket) {
       return { success: false, error: 'Firebase Storage not initialized' };
     }
@@ -132,7 +162,7 @@ const listCSVFiles = async () => {
 // Delete CSV file
 const deleteCSVFile = async (filename) => {
   try {
-    const { bucket } = initializeFirebaseStorage();
+    const { bucket } = initializeFirebase();
     if (!bucket) {
       return { success: false, error: 'Firebase Storage not initialized' };
     }
@@ -148,8 +178,11 @@ const deleteCSVFile = async (filename) => {
 };
 
 module.exports = {
-  initializeFirebaseStorage,
+  initializeFirebase,
   uploadCSVToFirebase,
   listCSVFiles,
-  deleteCSVFile
+  deleteCSVFile,
+  getDb: () => db,
+  getStorage: () => storage,
+  getBucket: () => bucket
 };

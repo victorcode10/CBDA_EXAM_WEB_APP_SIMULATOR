@@ -1,0 +1,16 @@
+[
+  {
+    "testName": "Mock Exam 1",
+    "testType": "mock",
+    "score": 0,
+    "date": "11/2/2025",
+    "timeTaken": "0:51",
+    "totalQuestions": 74,
+    "correctAnswers": 0,
+    "userId": "student_001",
+    "userName": "Victor Bolade",
+    "userEmail": "student@cbda.com",
+    "id": "result_1762110734380",
+    "timestamp": "2025-11-02T19:12:14.380Z"
+  }
+]
