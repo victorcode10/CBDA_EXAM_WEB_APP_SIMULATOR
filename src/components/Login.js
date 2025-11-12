@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock, User, Eye, EyeOff, LogIn, UserPlus, Shield } from 'lucide-react';
 import emailService from '../utils/emailService';
-import { API_ENDPOINTS } from '../config/app'; // ✅ ADD THIS LINE
+import { API_ENDPOINTS } from '../config/app';
 
 const Login = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -22,8 +22,7 @@ const Login = ({ onLogin }) => {
 
     try {
       if (isLogin) {
-        // Login
-        const response = await fetch(API_ENDPOINTS.login, { // ✅ CHANGED THIS LINE
+        const response = await fetch(API_ENDPOINTS.login, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
@@ -44,7 +43,6 @@ const Login = ({ onLogin }) => {
           setError(data.error || 'Authentication failed');
         }
       } else {
-        // Register - send verification email
         const code = emailService.generateVerificationCode();
         const emailResult = await emailService.sendVerificationEmail(email, name, code);
 
@@ -82,8 +80,7 @@ const Login = ({ onLogin }) => {
         onLogin({ ...pendingUser, verified: true });
         localStorage.setItem('isVerified', 'true');
       } else {
-        // Complete registration
-        const response = await fetch(API_ENDPOINTS.register, { // ✅ CHANGED THIS LINE
+        const response = await fetch(API_ENDPOINTS.register, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
