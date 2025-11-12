@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Clock, BarChart3, User, LogOut, Menu, X, Trophy, Target, TrendingUp, CheckCircle, Play, ArrowLeft, ArrowRight, Settings } from 'lucide-react';
 import emailService from '../utils/emailService';
+import { API_ENDPOINTS } from '../config/app'; // 
 
 const StudentDashboard = ({ user, onLogout }) => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -33,41 +34,39 @@ const StudentDashboard = ({ user, onLogout }) => {
   ];
 
   useEffect(() => {
-  const loadResults = async () => {
-    try {
-      const response = await fetch(`/api/results/user/${user.id}`);
-      const data = await response.json();
-      if (data.success) {
-        setTestResults(data.results);
+    const loadResults = async () => {
+      try {
+        const response = await fetch(API_ENDPOINTS.getUserResults(user.id)); // ✅ CHANGED
+        const data = await response.json();
+        if (data.success) {
+          setTestResults(data.results);
+        }
+      } catch (error) {
+        console.error('Error loading results:', error);
       }
-    } catch (error) {
-      console.error('Error loading results:', error);
-    }
-  };
-  loadResults();
-}, [user.id]);
+    };
+    loadResults();
+  }, [user.id]);
 
   useEffect(() => {
-  if (testStarted && timeRemaining > 0) {
-    const timer = setInterval(() => {
-      setTimeRemaining(prev => {
-        if (prev <= 1) {
-          // Auto-submit when time runs out
-          handleAutoSubmit();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [testStarted, timeRemaining]);
-
+    if (testStarted && timeRemaining > 0) {
+      const timer = setInterval(() => {
+        setTimeRemaining(prev => {
+          if (prev <= 1) {
+            handleAutoSubmit();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [testStarted, timeRemaining]);
 
   const loadUserResults = async () => {
     try {
-      const response = await fetch(`/api/results/user/${user.id}`);
+      const response = await fetch(API_ENDPOINTS.getUserResults(user.id)); // ✅ CHANGED
       const data = await response.json();
       if (data.success) {
         setTestResults(data.results);
@@ -84,45 +83,43 @@ const StudentDashboard = ({ user, onLogout }) => {
   };
 
   const handleAutoSubmit = () => {
-  let correctCount = 0;
-  questions.forEach(q => {
-    if (answers[q.id] === q.correctAnswer) {
-      correctCount++;
-    }
-  });
+    let correctCount = 0;
+    questions.forEach(q => {
+      if (answers[q.id] === q.correctAnswer) {
+        correctCount++;
+      }
+    });
 
-const finalScore = Math.round((correctCount / questions.length) * 100);
-  setScore(finalScore);
+    const finalScore = Math.round((correctCount / questions.length) * 100);
+    setScore(finalScore);
 
-  const result = {
-    testName: currentTest.name,
-    testType: currentTest.type,
-    score: finalScore,
-    date: new Date().toLocaleDateString(),
-    timeTaken: formatTime((currentTest.type === 'mock' ? 7200 : 3600) - timeRemaining),
-    totalQuestions: questions.length,
-    correctAnswers: correctCount,
-    userId: user.id,
-    userName: user.name,
-    userEmail: user.email
+    const result = {
+      testName: currentTest.name,
+      testType: currentTest.type,
+      score: finalScore,
+      date: new Date().toLocaleDateString(),
+      timeTaken: formatTime((currentTest.type === 'mock' ? 7200 : 3600) - timeRemaining),
+      totalQuestions: questions.length,
+      correctAnswers: correctCount,
+      userId: user.id,
+      userName: user.name,
+      userEmail: user.email
+    };
+
+    fetch(API_ENDPOINTS.saveResult, { // ✅ CHANGED
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(result)
+    }).catch(error => console.error('Error saving result:', error));
+
+    setTestStarted(false);
+    setShowResults(true);
   };
-
-  fetch('/api/results', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(result)
-  }).catch(error => console.error('Error saving result:', error));
-
-  setTestStarted(false);
-  setShowResults(true);
-};
-
-
 
   const startTest = async (test, type) => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/questions/${type}/${test.id}`);
+      const response = await fetch(API_ENDPOINTS.getQuestions(type, test.id)); // ✅ CHANGED
       const data = await response.json();
 
       if (data.success && data.questions.length > 0) {
@@ -173,7 +170,7 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
     };
 
     try {
-      await fetch('/api/results', {
+      await fetch(API_ENDPOINTS.saveResult, { // ✅ CHANGED
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(result)
@@ -259,7 +256,6 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
           </div>
         </div>
 
-        {/* Statistics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
             <div className="flex items-center space-x-4">
@@ -302,7 +298,6 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
           </div>
         </div>
 
-        {/* CHAPTER TESTS SECTION */}
         <div className="mb-12">
           <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-t-xl p-6">
             <h3 className="text-2xl md:text-3xl font-bold mb-2">📚 Chapter-wise Tests</h3>
@@ -335,7 +330,6 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
           </div>
         </div>
 
-        {/* MOCK EXAMS SECTION */}
         <div className="mb-8">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-xl p-6">
             <h3 className="text-2xl md:text-3xl font-bold mb-2">🎯 Full-Length Mock Exams</h3>
@@ -509,7 +503,6 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
                     )}
                   </div>
 
-                  {/* Question Navigator */}
                   <div className="p-4 bg-gray-50 rounded-lg">
                     <p className="text-sm font-medium text-gray-700 mb-2">Question Navigator:</p>
                     <div className="flex flex-wrap gap-2">
@@ -625,9 +618,8 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
       const isValid = emailService.verifyCode(newEmail, verificationCode);
 
       if (isValid) {
-        // Update email in backend
         try {
-          const response = await fetch('/api/auth/change-email', {
+          const response = await fetch(API_ENDPOINTS.changeEmail, { // ✅ CHANGED
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId: user.id, newEmail })
@@ -648,116 +640,120 @@ const finalScore = Math.round((correctCount / questions.length) * 100);
         setMessage({ type: 'error', text: 'Invalid verification code' });
       }
     };
+
     return (
-<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-<Header />
-<div className="container mx-auto px-4 py-8">
-<div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto">
-<div className="text-center mb-8">
-<div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-<User size={48} className="text-white" />
-</div>
-<h2 className="text-3xl font-bold text-gray-800">{user.name}</h2>
-<p className="text-gray-600">{user.email}</p>
-<span className="inline-block mt-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold">
-Student
-</span>
-</div> {message && (
-          <div className={`mb-6 p-4 rounded-lg ${
-            message.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
-          }`}>
-            {message.text}
-          </div>
-        )}
-
-        <div className="space-y-4 mb-8">
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="text-sm text-gray-600 mb-1">Total Tests Taken</div>
-            <div className="text-2xl font-bold text-gray-800">{testResults.length}</div>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="text-sm text-gray-600 mb-1">Average Score</div>
-            <div className="text-2xl font-bold text-gray-800">
-              {testResults.length > 0 ? Math.round(testResults.reduce((acc, r) => acc + r.score, 0) / testResults.length) : 0}%
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <Header />
+        <div className="container mx-auto px-4 py-8">
+          <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <User size={48} className="text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-800">{user.name}</h2>
+              <p className="text-gray-600">{user.email}</p>
+              <span className="inline-block mt-2 bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold">
+                Student
+              </span>
             </div>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="text-sm text-gray-600 mb-1">Highest Score</div>
-            <div className="text-2xl font-bold text-gray-800">
-              {testResults.length > 0 ? Math.max(...testResults.map(r => r.score)) : 0}%
-            </div>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="text-sm text-gray-600 mb-1">Tests Passed (70%+)</div>
-            <div className="text-2xl font-bold text-gray-800">
-              {testResults.filter(r => r.score >= 70).length}
-            </div>
-          </div>
-        </div>
 
-        {/* Email Change Section */}
-        <div className="border-t pt-6">
-          <button
-            onClick={() => setShowEmailChange(!showEmailChange)}
-            className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium"
-          >
-            <Settings size={20} />
-            <span>Change Email Address</span>
-          </button>
+            {message && (
+              <div className={`mb-6 p-4 rounded-lg ${
+                message.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+              }`}>
+                {message.text}
+              </div>
+            )}
 
-          {showEmailChange && (
-            <div className="mt-4 bg-blue-50 rounded-xl p-4">
-              {!emailVerificationSent ? (
-                <div className="space-y-3">
-                  <input
-                    type="email"
-                    value={newEmail}
-                    onChange={(e) => setNewEmail(e.target.value)}
-                    placeholder="Enter new email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  />
-                  <button
-                    onClick={handleEmailChangeRequest}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
-                  >
-                    Send Verification Code
-                  </button>
+            <div className="space-y-4 mb-8">
+              <div className="bg-gray-50 rounded-xl p-4">
+                <div className="text-sm text-gray-600 mb-1">Total Tests Taken</div>
+                <div className="text-2xl font-bold text-gray-800">{testResults.length}</div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-4">
+                <div className="text-sm text-gray-600 mb-1">Average Score</div>
+                <div className="text-2xl font-bold text-gray-800">
+                  {testResults.length > 0 ? Math.round(testResults.reduce((acc, r) => acc + r.score, 0) / testResults.length) : 0}%
                 </div>
-              ) : (
-                <div className="space-y-3">
-                  <p className="text-sm text-gray-700">Enter the code sent to {newEmail}</p>
-                  <input
-                    type="text"
-                    value={verificationCode}
-                    onChange={(e) => setVerificationCode(e.target.value)}
-                    placeholder="000000"
-                    maxLength="6"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-center text-2xl tracking-widest"
-                  />
-                  <button
-                    onClick={handleEmailChangeVerify}
-                    disabled={verificationCode.length !== 6}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition disabled:opacity-50"
-                  >
-                    Verify & Change Email
-                  </button>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-4">
+                <div className="text-sm text-gray-600 mb-1">Highest Score</div>
+                <div className="text-2xl font-bold text-gray-800">
+                  {testResults.length > 0 ? Math.max(...testResults.map(r => r.score)) : 0}%
+                </div>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-4">
+                <div className="text-sm text-gray-600 mb-1">Tests Passed (70%+)</div>
+                <div className="text-2xl font-bold text-gray-800">
+                  {testResults.filter(r => r.score >= 70).length}
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t pt-6">
+              <button
+                onClick={() => setShowEmailChange(!showEmailChange)}
+                className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium"
+              >
+                <Settings size={20} />
+                <span>Change Email Address</span>
+              </button>
+
+              {showEmailChange && (
+                <div className="mt-4 bg-blue-50 rounded-xl p-4">
+                  {!emailVerificationSent ? (
+                    <div className="space-y-3">
+                      <input
+                        type="email"
+                        value={newEmail}
+                        onChange={(e) => setNewEmail(e.target.value)}
+                        placeholder="Enter new email"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                      />
+                      <button
+                        onClick={handleEmailChangeRequest}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition"
+                      >
+                        Send Verification Code
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      <p className="text-sm text-gray-700">Enter the code sent to {newEmail}</p>
+                      <input
+                        type="text"
+                        value={verificationCode}
+                        onChange={(e) => setVerificationCode(e.target.value)}
+                        placeholder="000000"
+                        maxLength="6"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-center text-2xl tracking-widest"
+                      />
+                      <button
+                        onClick={handleEmailChangeVerify}
+                        disabled={verificationCode.length !== 6}
+                        className="w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition disabled:opacity-50"
+                      >
+                        Verify & Change Email
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
-          )}
+          </div>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div>
+      {currentPage === 'home' && <HomePage />}
+      {currentPage === 'test' && <TestPage />}
+      {currentPage === 'performance' && <PerformancePage />}
+      {currentPage === 'profile' && <ProfilePage />}
     </div>
-  </div>
-);
+  );
 };
-return (
-<div>
-{currentPage === 'home' && <HomePage />}
-{currentPage === 'test' && <TestPage />}
-{currentPage === 'performance' && <PerformancePage />}
-{currentPage === 'profile' && <ProfilePage />}
-</div>
-);
-};
+
 export default StudentDashboard;
