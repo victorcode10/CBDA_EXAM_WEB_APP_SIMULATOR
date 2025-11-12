@@ -4,7 +4,7 @@ import {
   Download, Trash2, CheckCircle, AlertCircle, User, Target, Cloud
 } from 'lucide-react';
 import mammoth from 'mammoth';
-import { API_ENDPOINTS } from '../config/app'; // 
+import { API_ENDPOINTS } from '../config/app';
 
 const AdminDashboard = ({ user, onLogout }) => {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -27,7 +27,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadStats = async () => {
     try {
-      const response = await fetch(API_ENDPOINTS.getStats); // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.getStats);
       const data = await response.json();
       if (data.success) {
         setStats(data.stats);
@@ -39,7 +39,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadAllResults = async () => {
     try {
-      const response = await fetch(API_ENDPOINTS.getAllResults); // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.getAllResults);
       const data = await response.json();
       if (data.success) {
         setAllResults(data.results);
@@ -51,7 +51,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadUsers = async () => {
     try {
-      const response = await fetch(API_ENDPOINTS.getUsers); // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.getUsers);
       const data = await response.json();
       if (data.success) {
         setUsers(data.users);
@@ -63,7 +63,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadAvailableTests = async () => {
     try {
-      const response = await fetch(API_ENDPOINTS.availableTests); // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.availableTests);
       const data = await response.json();
       if (data.success) {
         setAvailableTests(data.tests);
@@ -75,7 +75,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadCloudFiles = async () => {
     try {
-      const response = await fetch(API_ENDPOINTS.csvFiles); // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.csvFiles);
       const data = await response.json();
       if (data.success) {
         setCloudFiles(data.files);
@@ -164,7 +164,7 @@ const AdminDashboard = ({ user, onLogout }) => {
         const formData = new FormData();
         formData.append('file', jsonFile);
 
-        const response = await fetch(API_ENDPOINTS.uploadQuestions(testType, testId), { // ✅ CHANGED
+        const response = await fetch(API_ENDPOINTS.uploadQuestions(testType, testId), {
           method: 'POST',
           body: formData
         });
@@ -182,7 +182,7 @@ const AdminDashboard = ({ user, onLogout }) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch(API_ENDPOINTS.uploadQuestions(testType, testId), { // ✅ CHANGED
+        const response = await fetch(API_ENDPOINTS.uploadQuestions(testType, testId), {
           method: 'POST',
           body: formData
         });
@@ -208,13 +208,13 @@ const AdminDashboard = ({ user, onLogout }) => {
   };
 
   const handleExportCSV = () => {
-    window.open(API_ENDPOINTS.exportCSV, '_blank'); // ✅ CHANGED
+    window.open(API_ENDPOINTS.exportCSV, '_blank');
   };
 
   const handleExportToCloud = async () => {
     setLoading(true);
     try {
-      const response = await fetch(API_ENDPOINTS.exportCSVCloud); // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.exportCSVCloud);
       const data = await response.json();
       
       if (data.success) {
@@ -237,7 +237,7 @@ const AdminDashboard = ({ user, onLogout }) => {
     if (!window.confirm('Are you sure you want to delete this result?')) return;
 
     try {
-      const response = await fetch(API_ENDPOINTS.deleteResult(resultId), { // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.deleteResult(resultId), {
         method: 'DELETE'
       });
 
@@ -259,7 +259,7 @@ const AdminDashboard = ({ user, onLogout }) => {
     if (!window.confirm('Delete this file from cloud storage?')) return;
     
     try {
-      const response = await fetch(API_ENDPOINTS.deleteCSVCloud(filename), { // ✅ CHANGED
+      const response = await fetch(API_ENDPOINTS.deleteCSVCloud(filename), {
         method: 'DELETE'
       });
       const data = await response.json();
@@ -504,13 +504,13 @@ const AdminDashboard = ({ user, onLogout }) => {
             </div>
           </div>
 
-          <div className="bg-amber-50 rounded-xl p-6 border-2 border-amber-200 mb-6">
+          <div className="bg-amber-50 rounded-xl p-6 border-2 border-amber-200">
             <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center space-x-2">
               <FileText size={20} className="text-amber-600" />
               <span>Word Document Format (.docx)</span>
             </h3>
             <pre className="bg-white p-4 rounded-lg overflow-x-auto text-xs">
-              {`Question 1: What is data governance?
+{`Question 1: What is data governance?
 A) Storing data
 B) Managing data quality and compliance
 C) Deleting data
