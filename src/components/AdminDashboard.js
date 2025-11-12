@@ -4,6 +4,7 @@ import {
   Download, Trash2, CheckCircle, AlertCircle, User, Target, Cloud
 } from 'lucide-react';
 import mammoth from 'mammoth';
+import { API_ENDPOINTS } from '../config/app'; // 
 
 const AdminDashboard = ({ user, onLogout }) => {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -26,7 +27,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadStats = async () => {
     try {
-      const response = await fetch('/api/admin/stats');
+      const response = await fetch(API_ENDPOINTS.getStats); // ✅ CHANGED
       const data = await response.json();
       if (data.success) {
         setStats(data.stats);
@@ -38,7 +39,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadAllResults = async () => {
     try {
-      const response = await fetch('/api/results/admin/all');
+      const response = await fetch(API_ENDPOINTS.getAllResults); // ✅ CHANGED
       const data = await response.json();
       if (data.success) {
         setAllResults(data.results);
@@ -50,7 +51,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadUsers = async () => {
     try {
-      const response = await fetch('/api/admin/users');
+      const response = await fetch(API_ENDPOINTS.getUsers); // ✅ CHANGED
       const data = await response.json();
       if (data.success) {
         setUsers(data.users);
@@ -62,7 +63,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadAvailableTests = async () => {
     try {
-      const response = await fetch('/api/questions/available');
+      const response = await fetch(API_ENDPOINTS.availableTests); // ✅ CHANGED
       const data = await response.json();
       if (data.success) {
         setAvailableTests(data.tests);
@@ -74,7 +75,7 @@ const AdminDashboard = ({ user, onLogout }) => {
 
   const loadCloudFiles = async () => {
     try {
-      const response = await fetch('/api/results/csv-files');
+      const response = await fetch(API_ENDPOINTS.csvFiles); // ✅ CHANGED
       const data = await response.json();
       if (data.success) {
         setCloudFiles(data.files);
@@ -96,7 +97,7 @@ const AdminDashboard = ({ user, onLogout }) => {
       questionBlocks.forEach((block, index) => {
         const lines = block.split('\n').map(l => l.trim()).filter(l => l);
         
-        if (lines.length < 6) return; // Skip incomplete questions
+        if (lines.length < 6) return;
 
         const questionText = lines[0];
         const options = [];
@@ -163,7 +164,7 @@ const AdminDashboard = ({ user, onLogout }) => {
         const formData = new FormData();
         formData.append('file', jsonFile);
 
-        const response = await fetch(`/api/questions/upload/${testType}/${testId}`, {
+        const response = await fetch(API_ENDPOINTS.uploadQuestions(testType, testId), { // ✅ CHANGED
           method: 'POST',
           body: formData
         });
@@ -181,7 +182,7 @@ const AdminDashboard = ({ user, onLogout }) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch(`/api/questions/upload/${testType}/${testId}`, {
+        const response = await fetch(API_ENDPOINTS.uploadQuestions(testType, testId), { // ✅ CHANGED
           method: 'POST',
           body: formData
         });
@@ -207,13 +208,13 @@ const AdminDashboard = ({ user, onLogout }) => {
   };
 
   const handleExportCSV = () => {
-    window.open('/api/results/export/csv', '_blank');
+    window.open(API_ENDPOINTS.exportCSV, '_blank'); // ✅ CHANGED
   };
 
   const handleExportToCloud = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/results/export/csv-cloud');
+      const response = await fetch(API_ENDPOINTS.exportCSVCloud); // ✅ CHANGED
       const data = await response.json();
       
       if (data.success) {
@@ -236,7 +237,7 @@ const AdminDashboard = ({ user, onLogout }) => {
     if (!window.confirm('Are you sure you want to delete this result?')) return;
 
     try {
-      const response = await fetch(`/api/results/${resultId}`, {
+      const response = await fetch(API_ENDPOINTS.deleteResult(resultId), { // ✅ CHANGED
         method: 'DELETE'
       });
 
@@ -258,7 +259,7 @@ const AdminDashboard = ({ user, onLogout }) => {
     if (!window.confirm('Delete this file from cloud storage?')) return;
     
     try {
-      const response = await fetch(`/api/results/csv-cloud/${filename}`, {
+      const response = await fetch(API_ENDPOINTS.deleteCSVCloud(filename), { // ✅ CHANGED
         method: 'DELETE'
       });
       const data = await response.json();
@@ -437,10 +438,9 @@ const AdminDashboard = ({ user, onLogout }) => {
             </div>
           )}
 
-          {/* Chapter Tests */}
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Chapter-wise Tests</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[{ id: 1, name: 'Identify the research questions' },
                 { id: 2, name: 'Source data' },
                 { id: 3, name: 'Analyze data' },
@@ -474,7 +474,6 @@ const AdminDashboard = ({ user, onLogout }) => {
             </div>
           </div>
 
-          {/* Mock Exams */}
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Mock Exams (75 questions each)</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -505,7 +504,6 @@ const AdminDashboard = ({ user, onLogout }) => {
             </div>
           </div>
 
-          {/* Word Document Format Guide */}
           <div className="bg-amber-50 rounded-xl p-6 border-2 border-amber-200 mb-6">
             <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center space-x-2">
               <FileText size={20} className="text-amber-600" />
@@ -535,32 +533,6 @@ Difficulty: easy`}
               4 options (A-D), Answer (A/B/C/D), Domain, and Difficulty (easy/medium/hard)
             </p>
           </div>
-
-          {/* JSON Format Guide
-          <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
-            <h3 className="text-lg font-bold text-gray-800 mb-3">JSON File Format</h3>
-            <pre className="bg-white p-4 rounded-lg overflow-x-auto text-xs">
-              {`[
-  {
-    "id": 1,
-    "question": "Your question here?",
-    "options": [
-      "Option A",
-      "Option B",
-      "Option C",
-      "Option D"
-    ],
-    "correctAnswer": 1,
-    "domain": "Business Acumen",
-    "difficulty": "medium"
-  }
-]`}
-            </pre>
-            <p className="text-sm text-gray-600 mt-3">
-              <strong>Required fields:</strong> id (number), question (string), options (array of 4 strings),
-              correctAnswer (0-3), domain (string), difficulty (easy/medium/hard)
-            </p>
-          </div> */}
         </div>
       </div>
     </div>
@@ -615,7 +587,6 @@ Difficulty: easy`}
             </div>
           )}
 
-          {/* Cloud Files Section */}
           {showCloudFiles && (
             <div className="mb-6 bg-purple-50 border-2 border-purple-200 rounded-xl p-6">
               <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center space-x-2">
@@ -635,7 +606,7 @@ Difficulty: easy`}
                         </p>
                       </div>
                       <div className="flex gap-2">
-                        <a
+                        
                           href={file.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -791,4 +762,3 @@ Difficulty: easy`}
 };
 
 export default AdminDashboard;
-
