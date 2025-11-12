@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Lock, User, Eye, EyeOff, LogIn, UserPlus, Shield } from 'lucide-react';
 import emailService from '../utils/emailService';
+import { API_ENDPOINTS } from '../config/app'; // ✅ ADD THIS LINE
 
 const Login = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -22,7 +23,7 @@ const Login = ({ onLogin }) => {
     try {
       if (isLogin) {
         // Login
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch(API_ENDPOINTS.login, { // ✅ CHANGED THIS LINE
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
@@ -82,7 +83,7 @@ const Login = ({ onLogin }) => {
         localStorage.setItem('isVerified', 'true');
       } else {
         // Complete registration
-        const response = await fetch('/api/auth/register', {
+        const response = await fetch(API_ENDPOINTS.register, { // ✅ CHANGED THIS LINE
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -344,8 +345,6 @@ const Login = ({ onLogin }) => {
               )}
             </button>
           </div>
-
-          
         </div>
       </div>
     </div>
