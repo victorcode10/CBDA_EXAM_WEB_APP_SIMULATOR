@@ -644,7 +644,7 @@ Difficulty: easy`}
                         </p>
                       </div>
                       <div className="flex gap-2">
-                        
+                        <a
                           href={file.url}
                           target="_blank"
                           rel="noopener noreferrer"
