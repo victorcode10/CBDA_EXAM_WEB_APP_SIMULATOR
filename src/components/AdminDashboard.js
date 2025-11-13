@@ -510,9 +510,8 @@ const AdminDashboard = ({ user, onLogout }) => {
               <FileText size={20} className="text-amber-600" />
               <span>Word Document Format (.docx)</span>
             </h3>
-            <div className="bg-white p-4 rounded-lg overflow-x-auto">
-              <pre className="text-xs whitespace-pre">
-{`Question 1: What is data governance?
+            <div className="bg-white p-4 rounded-lg">
+              <pre className="text-xs overflow-x-auto">Question 1: What is data governance?
 A) Storing data
 B) Managing data quality and compliance
 C) Deleting data
@@ -528,8 +527,7 @@ C) Execute, Track, Log
 D) Estimate, Transfer, Link
 Answer: A
 Domain: Data Analysis
-Difficulty: easy`}
-              </pre>
+Difficulty: easy</pre>
             </div>
             <p className="text-sm text-gray-600 mt-3">
               <strong>Format Requirements:</strong> Each question must have: Question number, Question text,
