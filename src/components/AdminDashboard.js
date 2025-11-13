@@ -510,8 +510,14 @@ const AdminDashboard = ({ user, onLogout }) => {
               <FileText size={20} className="text-amber-600" />
               <span>Word Document Format (.docx)</span>
             </h3>
-            <div className="bg-white p-4 rounded-lg">
-              <pre className="text-xs overflow-x-auto">Question 1: What is data governance?
+            
+            <div className="bg-white p-4 rounded-lg border-2 border-gray-300 shadow-sm mb-4">
+              <div className="flex items-start space-x-2 mb-2">
+                <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded font-semibold">EXAMPLE</span>
+              </div>
+              <div className="bg-gray-50 p-3 rounded">
+                <pre className="text-xs font-mono text-gray-800 whitespace-pre-wrap">
+{`Question 1: What is data governance?
 A) Storing data
 B) Managing data quality and compliance
 C) Deleting data
@@ -527,12 +533,43 @@ C) Execute, Track, Log
 D) Estimate, Transfer, Link
 Answer: A
 Domain: Data Analysis
-Difficulty: easy</pre>
+Difficulty: easy`}
+                </pre>
+              </div>
             </div>
-            <p className="text-sm text-gray-600 mt-3">
-              <strong>Format Requirements:</strong> Each question must have: Question number, Question text,
-              4 options (A-D), Answer (A/B/C/D), Domain, and Difficulty (easy/medium/hard)
-            </p>
+
+            <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+              <p className="text-sm font-bold text-gray-800 mb-3 flex items-center space-x-2">
+                <span>📋</span>
+                <span>Format Requirements:</span>
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-gray-700">
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>Question number with colon</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>Four options (A-D) on separate lines</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>Answer: A, B, C, or D</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>Domain: topic area</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>Difficulty: easy/medium/hard</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span className="text-green-600 font-bold">✓</span>
+                  <span>Blank line between questions</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -607,7 +644,7 @@ Difficulty: easy</pre>
                         </p>
                       </div>
                       <div className="flex gap-2">
-                        <a
+                        
                           href={file.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -763,4 +800,3 @@ Difficulty: easy</pre>
 };
 
 export default AdminDashboard;
-
