@@ -57,4 +57,6 @@ class EmailService {
   }
 }
 
-export default new EmailService();
+// Fixed: Assign to variable before exporting
+const emailService = new EmailService();
+export default emailService;

@@ -1,7 +1,7 @@
 // API Configuration
 const API_BASE_URL = process.env.REACT_APP_API_URL || 
   (process.env.NODE_ENV === 'production' 
-    ? 'https://your-backend-name.onrender.com/api'  // Will update after Render deployment
+    ? 'https://cbda-exam-web-app-simulator.onrender.com/api'  // Will update after Render deployment
     : 'http://localhost:5000/api');
 
 export const API_ENDPOINTS = {
