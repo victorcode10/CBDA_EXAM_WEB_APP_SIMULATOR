@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Clock, BarChart3, User, LogOut, Menu, X, Trophy, Target, TrendingUp, CheckCircle, Play, ArrowLeft, ArrowRight, Settings } from 'lucide-react';
 import emailService from '../utils/emailService';
-import { API_ENDPOINTS } from '../config/app'; // ✅ ADDED
+import { API_ENDPOINTS } from '../config/app'; 
 
 const StudentDashboard = ({ user, onLogout }) => {
   const [currentPage, setCurrentPage] = useState('home');
