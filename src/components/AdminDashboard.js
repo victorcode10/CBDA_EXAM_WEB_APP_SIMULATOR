@@ -441,36 +441,37 @@ const AdminDashboard = ({ user, onLogout }) => {
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Chapter-wise Tests</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[{ id: 1, name: 'Identify the research questions' },
+              {[
+                { id: 1, name: 'Identify the research questions' },
                 { id: 2, name: 'Source data' },
                 { id: 3, name: 'Analyze data' },
                 { id: 4, name: 'Interpret and report results' },
                 { id: 5, name: 'Use results to influence business decision-making' },
-                { id: 6, name: 'Guide organizational-level strategy for business analytics' }]
-                .map(chapter => {
-                  const test = availableTests.find(t => t.testType === 'chapter' && t.testId === chapter.id.toString());
-                  return (
-                    <div key={chapter.id} className="bg-blue-50 rounded-xl p-4 border-2 border-blue-200">
-                      <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-semibold text-gray-800">{chapter.name}</h4>
-                        {test && (
-                          <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full flex items-center space-x-1">
-                            <CheckCircle size={12} />
-                            <span>{test.questionCount} Qs</span>
-                          </span>
-                        )}
-                      </div>
-                      <input
-                        type="file"
-                        accept=".json,.docx,.doc"
-                        onChange={(e) => handleQuestionUpload(e, 'chapter', chapter.id)}
-                        disabled={loading}
-                        className="block w-full text-xs text-gray-500 file:mr-2 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 transition disabled:opacity-50"
-                      />
-                      <p className="text-xs text-gray-500 mt-1">JSON or Word (.docx)</p>
+                { id: 6, name: 'Guide organizational-level strategy for business analytics' }
+              ].map(chapter => {
+                const test = availableTests.find(t => t.testType === 'chapter' && t.testId === chapter.id.toString());
+                return (
+                  <div key={chapter.id} className="bg-blue-50 rounded-xl p-4 border-2 border-blue-200">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="font-semibold text-gray-800">{chapter.name}</h4>
+                      {test && (
+                        <span className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full flex items-center space-x-1">
+                          <CheckCircle size={12} />
+                          <span>{test.questionCount} Qs</span>
+                        </span>
+                      )}
                     </div>
-                  );
-                })}
+                    <input
+                      type="file"
+                      accept=".json,.docx,.doc"
+                      onChange={(e) => handleQuestionUpload(e, 'chapter', chapter.id)}
+                      disabled={loading}
+                      className="block w-full text-xs text-gray-500 file:mr-2 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 transition disabled:opacity-50"
+                    />
+                    <p className="text-xs text-gray-500 mt-1">JSON or Word (.docx)</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -509,7 +510,8 @@ const AdminDashboard = ({ user, onLogout }) => {
               <FileText size={20} className="text-amber-600" />
               <span>Word Document Format (.docx)</span>
             </h3>
-            <pre className="bg-white p-4 rounded-lg overflow-x-auto text-xs">
+            <div className="bg-white p-4 rounded-lg overflow-x-auto">
+              <pre className="text-xs whitespace-pre">
 {`Question 1: What is data governance?
 A) Storing data
 B) Managing data quality and compliance
@@ -527,7 +529,8 @@ D) Estimate, Transfer, Link
 Answer: A
 Domain: Data Analysis
 Difficulty: easy`}
-            </pre>
+              </pre>
+            </div>
             <p className="text-sm text-gray-600 mt-3">
               <strong>Format Requirements:</strong> Each question must have: Question number, Question text,
               4 options (A-D), Answer (A/B/C/D), Domain, and Difficulty (easy/medium/hard)
