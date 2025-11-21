@@ -185,7 +185,7 @@ const StudentDashboard = ({ user, onLogout }) => {
   };
 
   const Header = () => (
-    <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-red-600 to-red-800 text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
@@ -198,25 +198,25 @@ const StudentDashboard = ({ user, onLogout }) => {
                 e.target.nextSibling.style.display = 'flex';
               }}
             />
-            <div className="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold text-xl shadow-md hidden">
+            <div className="bg-white text-red-600 px-4 py-2 rounded-lg font-bold text-xl shadow-md hidden">
               CBDA Academy
             </div>
             <div className="hidden md:block">
               <h1 className="text-2xl font-bold">CBDA Exam Simulator</h1>
-              <p className="text-blue-100 text-sm">Professional Certification Preparation</p>
+              <p className="text-red-100 text-sm">Professional Certification Preparation</p>
             </div>
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <button onClick={() => setCurrentPage('home')} className="hover:text-blue-200 transition flex items-center space-x-2">
+            <button onClick={() => setCurrentPage('home')} className="hover:text-red-200 transition flex items-center space-x-2">
               <BookOpen size={20} />
               <span>Dashboard</span>
             </button>
-            <button onClick={() => setCurrentPage('performance')} className="hover:text-blue-200 transition flex items-center space-x-2">
+            <button onClick={() => setCurrentPage('performance')} className="hover:text-red-200 transition flex items-center space-x-2">
               <BarChart3 size={20} />
               <span>Performance</span>
             </button>
-            <button onClick={() => setCurrentPage('profile')} className="hover:text-blue-200 transition flex items-center space-x-2">
+            <button onClick={() => setCurrentPage('profile')} className="hover:text-red-200 transition flex items-center space-x-2">
               <User size={20} />
               <span>Profile</span>
             </button>
@@ -299,18 +299,18 @@ const StudentDashboard = ({ user, onLogout }) => {
         </div>
 
         <div className="mb-12">
-          <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-t-xl p-6">
+          <div className="bg-gradient-to-r from-red-500 to-red-700 text-white rounded-t-xl p-6">
             <h3 className="text-2xl md:text-3xl font-bold mb-2">📚 Chapter-wise Tests</h3>
-            <p className="text-blue-100">Practice individual domains before taking full mock exams</p>
+            <p className="text-red-100">Practice individual domains before taking full mock exams</p>
           </div>
           <div className="bg-white rounded-b-xl shadow-xl p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {chapters.map(chapter => (
-                <div key={chapter.id} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 p-5 hover:shadow-lg transition">
+                <div key={chapter.id} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border-2 border-red-200 p-5 hover:shadow-lg transition">
                   <div className="mb-4">
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-bold text-gray-800 text-lg">{chapter.name}</h4>
-                      <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded-full">
+                      <span className="bg-red-600 text-white text-xs px-2 py-1 rounded-full">
                         {chapter.domain}
                       </span>
                     </div>
@@ -319,7 +319,7 @@ const StudentDashboard = ({ user, onLogout }) => {
                   <button 
                     onClick={() => startTest(chapter, 'chapter')} 
                     disabled={loading}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg transition font-medium flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full bg-red-600 hover:bg-red-700 text-white px-4 py-3 rounded-lg transition font-medium flex items-center justify-center space-x-2 disabled:opacity-50"
                   >
                     <Play size={18} />
                     <span>Start Chapter Test</span>
@@ -331,14 +331,14 @@ const StudentDashboard = ({ user, onLogout }) => {
         </div>
 
         <div className="mb-8">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-xl p-6">
+          <div className="bg-gradient-to-r from-red-600 to-red-700 text-white rounded-t-xl p-6">
             <h3 className="text-2xl md:text-3xl font-bold mb-2">🎓 Full-Length Mock Exams</h3>
-            <p className="text-purple-100">Simulate the real CBDA certification exam experience</p>
+            <p className="text-red-100">Simulate the real CBDA certification exam experience</p>
           </div>
           <div className="bg-white rounded-b-xl shadow-xl p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {mockExams.map(exam => (
-                <div key={exam.id} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border-2 border-purple-200 p-5 hover:shadow-lg transition">
+                <div key={exam.id} className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl border-2 border-red-200 p-5 hover:shadow-lg transition">
                   <div className="mb-4">
                     <h4 className="font-bold text-gray-800 text-xl mb-2">{exam.name}</h4>
                     <div className="flex items-center space-x-4 text-sm text-gray-600">
@@ -355,7 +355,7 @@ const StudentDashboard = ({ user, onLogout }) => {
                   <button 
                     onClick={() => startTest(exam, 'mock')} 
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-3 rounded-lg transition font-medium flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 py-3 rounded-lg transition font-medium flex items-center justify-center space-x-2 disabled:opacity-50"
                   >
                     <Play size={18} />
                     <span>Start Mock Exam</span>
